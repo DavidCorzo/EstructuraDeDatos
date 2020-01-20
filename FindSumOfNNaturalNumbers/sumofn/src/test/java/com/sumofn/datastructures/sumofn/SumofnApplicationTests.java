@@ -1,10 +1,10 @@
-package com.santacalculation.datastructures.RestApp;
+package com.sumofn.datastructures.sumofn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestAppApplicationTests {
+class SumofnApplicationTests {
 
 	@Test
 	void contextLoads() {

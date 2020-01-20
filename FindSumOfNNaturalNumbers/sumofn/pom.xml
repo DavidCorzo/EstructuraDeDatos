@@ -8,10 +8,10 @@
 		<version>2.2.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.santacalculation</groupId>
-	<artifactId>santacalculation</artifactId>
+	<groupId>com.sumofn.datastructures</groupId>
+	<artifactId>sumofn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>santacalculation</name>
+	<name>sumofn</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
