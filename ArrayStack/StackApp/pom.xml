@@ -8,10 +8,10 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.stack.datastructures</groupId>
-	<artifactId>stack</artifactId>
+	<groupId>com.datastructures.stack</groupId>
+	<artifactId>StackApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stack</name>
+	<name>StackApp</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
