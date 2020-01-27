@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 
-@Controller
+@Controller // Este es el código fuente
 public class Stack {
 
     ArrayList<String> Stack = new ArrayList<>();
@@ -37,12 +37,16 @@ public class Stack {
             index = 0;
         }
         System.out.println(index);
-        LastElement.append(this.Stack.get(index));
-        String Last = LastElement.toString();
-        this.Stack.remove(index);
+        String Last;
+        if (this.Stack.size() != 0) {
+            LastElement.append(this.Stack.get(index));
+            Last = LastElement.toString();
+            this.Stack.remove(index);
+        } else {
+            Last = "Empty array";
+        }
         return Last;
     }
-
 
     @RequestMapping("/print")
     @ResponseBody
@@ -82,17 +86,6 @@ public class Stack {
 //            index -= 1;
 //        }
       return "Status: Succesfully removed all elements of array";
-    }
-
-//    @GetMapping("/")
-//    public String user () {
-//        return "index.html";
-//    }
-
-    @RequestMapping("/none")
-    @ResponseBody
-    public String ret_val(int index) {
-        return this.Stack.get(index).toString();
     }
 
 }

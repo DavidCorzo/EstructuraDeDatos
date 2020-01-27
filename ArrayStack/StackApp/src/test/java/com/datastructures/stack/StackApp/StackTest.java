@@ -39,4 +39,4 @@ class StackTest {
         this.TestList.clear();
         assertEquals(0,this.TestList.Stack.size());
     }
-}
+} // el código pasó las pruebas unitarias ahora las profiling
