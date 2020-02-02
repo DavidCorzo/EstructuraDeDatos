@@ -1,91 +1,73 @@
 package com.datastructures.stack.StackApp;
 
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-
-@Controller // Este es el código fuente
+@Controller
 public class Stack {
+    // predefined array size for simplicity
+    public ObjectArray[] Master;
+    public int Counter;
 
-    ArrayList<String> Stack = new ArrayList<>();
-    String FinalStringToPrint;
-
-    Stack(){
-        // Empty constructor
+    Stack() {
+        this.Master = new ObjectArray[25];
+        this.Counter = 0;
     }
 
-    @RequestMapping("/push")
+    @GetMapping("/push")
     @ResponseBody
-    public ArrayList<String> push (@RequestParam String la) {
-        this.Stack.add(la);
-//        for (int i = 0 ; i < 10 ; i ++ ) {
-//            String s = String.valueOf(i);
-//            this.Stack.add(s);
-//        }
-        return this.Stack;
-    }
-
-    @RequestMapping("/pop")
-    @ResponseBody
-    public String pop (){
-        StringBuffer LastElement = new StringBuffer();
-        int index = this.Stack.size() - 1;
-        if (index < 0){
-            index = 0;
-        }
-        System.out.println(index);
-        String Last;
-        if (this.Stack.size() != 0) {
-            LastElement.append(this.Stack.get(index));
-            Last = LastElement.toString();
-            this.Stack.remove(index);
+    public String push (@RequestParam String p) {
+        if (this.Counter < this.Master.length) {
+            ObjectArray InsertTemporary = new ObjectArray(p);
+            this.Master[this.Counter] = InsertTemporary;
+            this.Counter += 1;
         } else {
-            Last = "Empty array";
+            p = "Error: array was initialized with a fixed size.";
         }
-        return Last;
+        return p;
     }
 
-    @RequestMapping("/print")
+    @GetMapping("/print")
     @ResponseBody
     public String print () {
-        StringBuffer all_array_joined = new StringBuffer();
-        int counter = 0;
-        if (this.Stack.size() != 0) {
-            for (String s : this.Stack) {
-                String index = Integer.toString(counter);
-                all_array_joined.append(" [" + index + "]: ");
-                 all_array_joined.append(s);
-                 if (counter != this.Stack.size() - 1) {
-                     all_array_joined.append(", \n");
-                 } else {
-                     all_array_joined.append("\n");
-                }
-
-                 counter += 1;
-            }
-            this.FinalStringToPrint = all_array_joined.toString();
+        String s = new String();
+        boolean not_done = true;
+        int i = 0;
+        while (not_done) {
+            if (this.Master[i] != null){
+            s = s + "Index:\t[" + i + "] : " + "\tContent: " + this.Master[i].Content() + "\tRecorded: " + this.Master[i].Date() + "\n";
+            i ++ ;
         } else {
-            this.FinalStringToPrint = "";
+                not_done = false;
+            }
         }
-        return this.FinalStringToPrint;
+
+        return s;
     }
 
-    @RequestMapping("/clear")
+    @GetMapping("/pop")
     @ResponseBody
-    public String clear () {
-        this.Stack.clear();
-//        int index = this.Stack.size();
-//        StringBuffer status = new StringBuffer();
-//        for (int i = 0 ; i < this.Stack.size() ; i ++ ) {
-//            // Just iterate the amount of times that the array has elements
-//            status.append(this.Stack.get(index) + "Succesfully Removed...");
-//            this.Stack.remove(index);
-//            index -= 1;
-//        }
-      return "Status: Succesfully removed all elements of array";
+    public String pop() {
+        int index_of_last_element = this.Counter - 1;
+        String Pop = this.Master[index_of_last_element].Content() + " : " + this.Master[index_of_last_element].Date();
+        this.Master[index_of_last_element] = null;
+        this.Counter -= 1;
+        return Pop;
+    }
+
+    @GetMapping("/clear")
+    @ResponseBody
+    public String clear() {
+        for ( int i = 0 ; i < this.Master.length ; i ++ ) {
+            this.Master[i] = null;
+        }
+        this.Counter = 0;
+        return "Succesfully removed every element from array";
     }
 
 }
+
+
