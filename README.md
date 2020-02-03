@@ -33,8 +33,9 @@ https://youtu.be/rPM4ujG45IE
 
 Link para el funcionamiento en postman:
 ```
-https://youtu.be/ft3dzUUM020 -->
-```
+https://youtu.be/ft3dzUUM020 
+``` -->
+
 ## TRABAJO PARA LUNES 03 DE FEBRERO 2020:
 Link para trabajo de Array Stack, lo tuve que re hacer por que estaba usando ArrayLists.
 ```
