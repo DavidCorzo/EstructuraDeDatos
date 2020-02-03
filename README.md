@@ -39,7 +39,7 @@ https://youtu.be/ft3dzUUM020
 ## TRABAJO PARA LUNES 03 DE FEBRERO 2020:
 Link para trabajo de Array Stack, lo tuve que re hacer por que estaba usando ArrayLists.
 ```
-https://studio.youtube.com/video/FB6JKojE9LY/edit
+https://youtu.be/FB6JKojE9LY
 ```
 
 
