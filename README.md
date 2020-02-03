@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=S4GPn9J_Hf4
 ```
 
 
-### TRABAJO PARA EL LUNES 27 DE ENERO 2020: 
+<!-- ### TRABAJO PARA EL LUNES 27 DE ENERO 2020: 
 Link para la prueba de profiling y unit testing:
 ```
 https://youtu.be/rPM4ujG45IE
@@ -33,9 +33,13 @@ https://youtu.be/rPM4ujG45IE
 
 Link para el funcionamiento en postman:
 ```
-https://youtu.be/ft3dzUUM020
+https://youtu.be/ft3dzUUM020 -->
 ```
-
+## TRABAJO PARA LUNES 03 DE FEBRERO 2020:
+Link para trabajo de Array Stack, lo tuve que re hacer por que estaba usando ArrayLists.
+```
+https://studio.youtube.com/video/FB6JKojE9LY/edit
+```
 
 
 

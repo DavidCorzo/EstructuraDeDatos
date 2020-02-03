@@ -29,7 +29,11 @@ public class Account {
         this.CounterDebit = 0;
         this.CounterCredit = 0;
         this.DebitAverage = 0;
+        this.DebitTotal = 0;
+        this.CreditTotal = 0;
+        this.DebitOperationsRecorded = 0;
     }
+
 
     @GetMapping("/a")
     @ResponseBody
@@ -93,7 +97,7 @@ public class Account {
         for ( int i = 0 ; i < this.MasterDebit.length ; i ++ ) {
             this.DebitTotal = this.DebitTotal + this.MasterDebit[i];
         }
-        s = s + "The debit total is: $";
+        s = s + "The debit total is: $" + this.DebitTotal;
         return s;
     }
 
@@ -104,7 +108,7 @@ public class Account {
         for ( int i = 0 ; i < this.MasterCredit.length ; i ++ ) {
             this.CreditTotal = this.CreditTotal + this.MasterCredit[i];
         }
-        s = s + "The credit total is: $";
+        s = s + "The credit total is: $" + this.CreditTotal;
         return s;
     }
 
@@ -249,4 +253,4 @@ public class Account {
 
 
 
-}
+
