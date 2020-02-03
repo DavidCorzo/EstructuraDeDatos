@@ -13,7 +13,7 @@ public class Stack {
     public int Counter;
 
     Stack() {
-        this.Master = new ObjectArray[25];
+        this.Master = new ObjectArray[50];
         this.Counter = 0;
     }
 
@@ -68,6 +68,12 @@ public class Stack {
         return "Succesfully removed every element from array";
     }
 
+    public String[] info(){
+        String[] obj = new String[2];
+        obj[0] = this.Master[0].Date();
+        obj[1] = this.Master[0].Content();
+        return obj;
+    }
 }
 
 
