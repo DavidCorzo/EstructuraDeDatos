@@ -2,6 +2,10 @@
 
 A continuación los links para los videos de funcionamiento, profiling y unit testing.
 
+### Información preliminar 
+Los directorios que contengan trabajos estarán precedidos por el character "#", en estos directorios estarán los trabajos.
+
+Adicional en la carpeta "\_\_\_GeneralTestsJMeter&JUnit___" estarán los screenshots relevantes a cada trabajo en un directorio que sea concurrente con el título del trabajo y la fecha. 
 
 ## TRABAJO PARA EL LUNES 20 DE ENERO:
 Link para el unit testing de Santa:
