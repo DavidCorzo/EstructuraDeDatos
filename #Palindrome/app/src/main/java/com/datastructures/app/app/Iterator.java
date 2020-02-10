@@ -1,6 +1,6 @@
 package com.datastructures.app.app;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +16,7 @@ public class Iterator {
         this.CurrentCounter = 0;
     }
 
-    @GetMapping("/")
+    @RequestMapping("/")
     @ResponseBody
     public String Submit(@RequestParam String wp ) {
         this.SomethingSubmited = true;
@@ -26,7 +26,7 @@ public class Iterator {
         return "Succesfully added:\n" + wp /*+ " + " + this.Current.get_Palindromes()*/;
     }
 
-    @GetMapping("/pal")
+    @RequestMapping("/pal")
     @ResponseBody
     public String Palindromes() {
         String palindromes = new String("Palindrome words: \n");
@@ -38,7 +38,7 @@ public class Iterator {
         return palindromes;
     }
 
-    @GetMapping("/npal")
+    @RequestMapping("/npal")
     @ResponseBody
     public String NotPalindromes() {
         String non_palindromes = new String("Non-palindrome words: \n");
@@ -50,7 +50,7 @@ public class Iterator {
         return non_palindromes;
     }
 
-    @GetMapping("/all")
+    @RequestMapping("/all")
     @ResponseBody
     public String All() {
         String All = new String("All words: \n");
