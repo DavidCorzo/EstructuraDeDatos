@@ -46,6 +46,11 @@ Link para trabajo de Array Stack, lo tuve que re hacer por que estaba usando Arr
 https://youtu.be/FB6JKojE9LY
 ```
 
+## TRABAJO PARA LUNES 09 DE FEBRERO DE 2020:
+Link para trabajo de detección de palabras palíndromas en un string implementado usando arrays y strings.
+```
+https://youtu.be/yQTLBUp4Pio
+```
 
 
 --------------------------------------------------------------------------
