@@ -53,6 +53,11 @@ Link para trabajo de detección de palabras palíndromas en un string implementa
 https://youtu.be/yQTLBUp4Pio
 ```
 
+## TRABAJO PARA LUNES 17 DE FEBRERO DE 2020:
+Link para trabajo de detectar el cuadrante a partir de dos puntos dados:
+```
+https://youtu.be/hAfV2hZku8o
+```
 
 --------------------------------------------------------------------------
 
