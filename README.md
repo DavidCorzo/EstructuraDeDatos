@@ -59,6 +59,12 @@ Link para trabajo de detectar el cuadrante a partir de dos puntos dados:
 https://youtu.be/hAfV2hZku8o
 ```
 
+## TRABAJO PARA LUNES 24 DE FEBRERO DE 2020:
+Link para trabajo usando linked list orientado a un playlist:
+```
+https://www.youtube.com/watch?v=5LK4K3Wc6DA&feature=youtu.be
+```
+
 --------------------------------------------------------------------------
 
 ![alt text](ufm_logo.jpg)

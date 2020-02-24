@@ -1,99 +1,137 @@
 package com.datastructures.playlist.Playlist;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-// Java program to implement
-// a Singly Linked List
-public class LinkedList {
+@Controller
+class LinkedList {
+    static LinkedList Master = new LinkedList();
+    Node head; // the first element
+    static Node now_playing = new Node();
 
-    Node head; // head of list
-
-    // Linked list Node.
-    // This inner class is made static
-    // so that main() can access it
     static class Node {
-
-        int data;
+        String data;
         Node next;
+        Node prev;
 
-        // Constructor
-        Node(int d)
-        {
-            data = d;
-            next = null;
+        Node() {
+            this.prev = null;
+            this.next = null;
+        }
+
+        Node(String data) {
+            this.prev = null;
+            this.data = data;
+            this.next = null;
+        }
+
+        public String getData() {
+            return data;
         }
     }
 
-    // Method to insert a new node
-    public static LinkedList insert(LinkedList list, int data)
-    {
-        // Create a new node with given data
-        Node new_node = new Node(data);
-        new_node.next = null;
+    @RequestMapping("/add")
+    @ResponseBody
+    public static String insert(@RequestParam String data) {
+        Node newNode = new Node(data);
 
-        // If the Linked List is empty,
-        // then make the new node as head
-        if (list.head == null) {
-            list.head = new_node;
-        }
-        else {
-            // Else traverse till the last node
-            // and insert the new_node there
-            Node last = list.head;
+        if (Master.head == null) {
+            Master.head = newNode;
+        } else {
+            Node last = Master.head; // empezamos desde el head
             while (last.next != null) {
-                last = last.next;
+                last = last.next; // encontramos el último elemento
             }
+            newNode.prev = last; // el nuevo nodo es anexado a el data de last
+            last.next = newNode; // el puntero de next en last apunto al nuevo nodo
+            newNode.next = null; // redundante pero entendible
 
-            // Insert the new_node at last node
-            last.next = new_node;
         }
-
-        // Return the list by head
-        return list;
+        return newNode.getData() + " has been added to the playlist";
     }
 
-    // Method to print the LinkedList.
-    public static void printList(LinkedList list)
-    {
-        Node currNode = list.head;
+    @RequestMapping("/play")
+    @ResponseBody
+    public static String play(@RequestParam String song) {
+        Node current = Master.head; // start at the beggining
 
-        System.out.print("LinkedList: ");
-
-        // Traverse through the LinkedList
-        while (currNode != null) {
-            // Print the data at current node
-            System.out.print(currNode.data + " ");
-
-            // Go to next node
-            currNode = currNode.next;
+        boolean founded = false;
+        while (current != null) {
+            if (current.data.equals(song)) {
+                now_playing = current;
+                founded = true;
+                System.out.println(song);
+                break;
+            }
+            current = current.next;
         }
+
+        String s = new String("");
+        if (founded) { // means it's in the list
+            s = s + now_playing.data + " is now playing";
+        } else {
+            s = "Song not found.";
+        }
+
+        return s;
     }
 
-    // Driver code
-    @RequestMapping("/")
-    @ResponseBody 
-    public static void main(String[] args)
-    {
-        /* Start with the empty list. */
-        LinkedList list = new LinkedList();
 
-        //
-        // ******INSERTION******
-        //
+    @RequestMapping("/next")
+    @ResponseBody
+    public static String playNext() {
+        String s = new String("");
 
-        // Insert the values
-        list = insert(list, 1);
-        list = insert(list, 2);
-        list = insert(list, 3);
-        list = insert(list, 4);
-        list = insert(list, 5);
-        list = insert(list, 6);
-        list = insert(list, 7);
-        list = insert(list, 8);
+        if (now_playing == null) {
+            now_playing = Master.head;
+            s = "List is empty";
+        } else {
+            now_playing = now_playing.next;
+            if (now_playing == null) {
+                s = "No next song is available";
+            } else {
+                s = "Now playing: " + now_playing.data;
+            }
+        }
+        return s;
+    }
 
-        // Print the LinkedList
-        printList(list);
+    @RequestMapping("/previous")
+    @ResponseBody
+    public static String playPrev() {
+        String s = new String("");
+        if (now_playing == null) {
+            now_playing = Master.head;
+            s = "Playlist is empty";
+        } else {
+            now_playing = now_playing.prev;
+            if (now_playing == null) {
+                s = "No more songs";
+            } else {
+                s = "Now playing: " + now_playing.data;
+            }
+        }
+        return s;
+    }
+
+    @RequestMapping("/print")
+    @ResponseBody
+    public static String printList() {
+        Node current = Master.head;
+        String s = "";
+
+        int counter = 1;
+        while (current != null) {
+            s = s + "Song: [" + counter + "]: " + current.getData() + "\n";
+//            System.out.println(s);
+            current = current.next;
+            counter ++;
+        }
+        if (counter == 1) {
+            s = "Playlist is empty";
+        }
+        return s;
     }
 }
-
