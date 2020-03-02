@@ -32,12 +32,6 @@ public class Queue {
         return newNode;
     }
 
-    public String dequeue_clear() {
-        this.root = null;
-        this.root.nextNode = null;
-        return "removed succesfully;";
-    }
-
     public String print(){
         Node current = this.root;
         String s = new String("");
@@ -55,20 +49,22 @@ public class Queue {
                 "\nDays Worked: " + obj.getTotal_days_worked();
     }
 
-    public boolean removed(WorkerData obj) {
+    public boolean removed(String name) {
         Node thisNode = this.root;
         Node prevNode = null;
 
-        while (thisNode != null) {
-            if (thisNode.equals(obj)) {
+        boolean chckeck = false;
+        while (thisNode.getNextNode() != null) {
+            if (thisNode.getData().getName().equals(name)) {
                 prevNode.setNextNode(thisNode.getNextNode());
                 this.setSize(this.getSize()-1);
-                return true;
+                chckeck = true;
             }
+            System.out.println(chckeck);
             prevNode = thisNode;
             thisNode = thisNode.getNextNode();
         }
-        return false;
+        return chckeck;
     }
 
     public Node find (String name) {

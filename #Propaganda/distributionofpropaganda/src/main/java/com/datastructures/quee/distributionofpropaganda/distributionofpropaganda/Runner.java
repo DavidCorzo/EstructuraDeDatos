@@ -20,24 +20,11 @@ public class Runner {
         return DataBase.print();
     }
 
-    @RequestMapping("/clear")
-    public String clear() {
-        String s = DataBase.print();
-        DataBase.dequeue_clear();
-        return s;
-    }
-
-    @RequestMapping("/choose")
-    public String choose(@RequestParam String name) {
-        String s = new String("nothing");
-        Node searched = DataBase.find(name);
-        boolean check = DataBase.removed(searched.data);
-        if (searched != null && check == true) {
-            s = s + "hello";
-        }
-        //        if ((searched != null) && (check)) {
-//            s = s + "\nDispaching: " + DataBase.getData(searched.data);
-//        }
+    @RequestMapping("/del")
+    public String del(@RequestParam String name) {
+        String s = new String("");
+        boolean check = DataBase.removed(name);
+        s = "Removed " + name + " successfully.";
         return s;
     }
 }
