@@ -70,6 +70,10 @@ Link para trabajo usando linked list orientado a un playlist:
 https://www.youtube.com/watch?v=5LK4K3Wc6DA&feature=youtu.be
 ```
 
+## Implementar un delete function en un bynary search tree:
+\# MakeDeleteBST directiory
+
+
 --------------------------------------------------------------------------
 
 ![alt text](ufm_logo.jpg)
