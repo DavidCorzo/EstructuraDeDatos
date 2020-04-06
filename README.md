@@ -71,8 +71,13 @@ https://www.youtube.com/watch?v=5LK4K3Wc6DA&feature=youtu.be
 ```
 
 ## Implementar un delete function en un bynary search tree:
-\# MakeDeleteBST directiory
+Directory: \#MakeDeleteBST directiory
 
+
+## Investigación de shortest and longest path algorithms para lunes 05-04-2020
+Directory: \#Shortest_and_longest_path_algorithms -> Shortest_and_longest_path_algorithms.pdf
+<br>
+Heap implementation: \#Heap 
 
 --------------------------------------------------------------------------
 
