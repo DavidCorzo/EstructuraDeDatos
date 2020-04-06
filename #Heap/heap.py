@@ -64,7 +64,7 @@ class MaxHeap:
     # Main methods:
 
     def print_heap(self) -> None:
-        print(self.heap)
+        return self.heap
 
     def max_value(self) -> int:
         return self.heap[0]
@@ -82,22 +82,64 @@ class MaxHeap:
         self.heapify_down(0)
         return [True, deleted_root]
     
-    def DFS(self, num):
+    def DFS(self, num, i=0):
         ''' 
         This method is used to find a determined value in a heap, 
         Takes as an argument the number to find then it returns at which index of the array it lies.   
+        ''' 
+        if self.get_left_child(i) < len(self.heap): # no index out bounds
+            lc = self.DFS(num=num, i=self.get_left_child(i))
+            if lc:
+                return lc
+        if self.get_right_child(i) < len(self.heap):
+            rc = self.DFS(num=num, i=self.get_right_child(i))
+            if rc:
+                return rc
+        # El número es el head
+        if num == self.heap[i]:
+            return i
+        # El numero no es
+        else:
+            return False
+    
+    def BFS(self, num):
         '''
+        if head is not None: # equivalent in python
+            queue = []
+            queue.append(head)
 
-        leftest_index = self.heap.index(num)
-        while (self.get_left_child(leftest_index) < len(self.heap) - 1):
-            leftest_index = self.get_left_child(leftest_index)
+            while True:
+                elemento = cola.pop()
+                elemento es el numero que buscas
+                SI
+                    return el número que buscas
+                    break
+                No
+                    cola.append(child left)
+                    cola.append(child right)
+            if not x
+                elemento es el que buscas
+            else    
+                elemento no existe
+        '''
+        # if len(self.heap) != 0:
+        queue = []
+        queue.append(0)
 
-        print(leftest_index)
-            
-    def BFS(self):
-        # for i in self.heap:
-        #     if 
-        pass
+
+        while True: 
+            if len(self.heap) == 0:
+                return False    
+            element = queue.pop(0)
+            if self.heap[element] == num:
+                return element
+            else:
+                if self.get_left_child(element) <= len(self.heap):
+                    queue.append(self.get_left_child(element))
+                if self.get_right_child(element) <= len(self.heap):
+                    queue.append(self.get_right_child(element))
+
+        return False 
 
 # Main process:
 
@@ -107,10 +149,12 @@ def main():
     initial_values = [3, 5, 7, 1, 10, 8, 4, 11, 13, 14, 16, 20, 100]
     for i in initial_values:
         heap.insert(i)
-    
-    heap.print_heap()
 
-    heap.DFS(100) 
+    hh = heap.print_heap()
+    print(hh)
+    for ii in hh:
+        print("From the DFS: ",heap.DFS(ii),ii) # :) 
+        print("From the BFS: ",heap.BFS(ii), ii)
 
 
 
