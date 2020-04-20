@@ -79,6 +79,16 @@ Directory: \#Shortest_and_longest_path_algorithms -> Shortest_and_longest_path_a
 <br>
 Heap implementation: \#Heap 
 
+## Investigación de hashing lunes 2020-04-19
+Directory: 
+\#Hash -> Diferent_types_of_hashing_functions.pdf
+
+\#Hash -> HashinImplementat.py
+
+
+
+
+
 --------------------------------------------------------------------------
 
 ![alt text](ufm_logo.jpg)
