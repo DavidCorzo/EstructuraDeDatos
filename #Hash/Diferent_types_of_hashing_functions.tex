@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage{generalsnips}
+\usepackage{calculussnips}
+\usepackage[margin = 1in]{geometry}
+\usepackage{pdfpages}
+% \usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{xpatch}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{hyperref}
+\title{Different types of hashing functions}
+\date{2020 April 18, 06:51PM}
+\author{David Corzo}
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Division method}
+Using modular arithmetic we can use a hash function to create individual and unique hash values. The formula is as follows:
+\[
+  \text{ Hash\_Key } = \text{ Key }\% \text{ Number of slots in the table }
+\]or 
+\[
+    \text{ Hash\_Key } = \text{ Key } mod(\text{ Number of slots in the table })
+\]
+The best table sizes are prime numbres, working with prime modules is favorable because they will have nothing in common with what is being hashed. This minimizes the chances of two keys having the same hash values, called by it's proper name this phenomenon is called collision. Any hashing function has the posibility of collision, thus the proposed solutions are as follows: 
+\begin{enumerate}
+    \item Chaining 
+    \item Linear probe or linear open addressing 
+    \item Quadratic probe 
+    \item Double hashing 
+\end{enumerate}
+
+\subsection{Multiplication method}
+Consists of a hashing function that uses the first $p$ bits of the key times an irrational number. This means formally speaking: 
+\[
+  h(k) = \floor{m(k \times A \; \text{ mod }(1))}
+\]Where:
+\begin{itemize}
+    \item $m$ is usually an integer $\in \; 2^{p}$ 
+    \item $A$ is an irrational number 
+\end{itemize}
+
+
+\section{Mid Square method}
+This hashing method consists of squaring the key and then taking the middle $r$ characters from the key and returning that as the hash key. For example, say we have a hash $k = 50$, next we find $k^2= \num{\fpeval{50^2}} $ then we choose a value for $r$, say $r=2$ the key is left as floows:
+\[
+  h(k) = k^2 = \underbrace{2\overbrace{50}^{\text{ hash returned }}0}_{k^2};\;\; \text{ return }\;50; 
+\]
+
+
+\section{Digit folding method}
+This method of hashing consists of randomly spliting a string in to segments and then adding them, for example: 1234567 could be split up in to three like so: 12,345,67 we could add those together and form a hash key like so: $12+345+67 = \num{\fpeval{12+345+67}}$. Collisions are less frequent in this method because you can make diferent hashes with a very diferent string. 
+
+
+\section{Fibonacci hashing}
+This is a form of multiplicative hashing in which the mutiplier $\displaystyle \frac{2^{w}}{\phi } $  where $w$ is the machine word length and $\phi$ is the golden ratio (which is aproximately $5/3$ ).\newline 
+The golden ratio is: 
+\[
+  \frac{x}{y} = \frac{x+y}{x} \equiv \phi 
+\]
+This $\phi$ ratio has an intimate relationship with the Fibonacci sequence, it composes the formula that gives us the n$^{\text{ th }}$ fibonacci number. 
+\[
+  F_n = \frac{\phi ^n - \cfrac{\p{-1} ^n}{\phi ^n}}{\sqrt{5}} 
+\]
+
+
+
+
+\section{Sources}
+\begin{enumerate}
+    \item \url{https://xlinux.nist.gov/dads/HTML/multiplicationMethod.html}
+    \item \url{http://faculty.cs.niu.edu/~freedman/340/340notes/340hash.htm}
+    \item \url{https://www.tutorialspoint.com/Hash-Functions-and-Hash-Tables}
+    \item \url{http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html}
+    \item \url{https://book.huihoo.com/data-structures-and-algorithms-with-object-oriented-design-patterns-in-c++/html/page214.html}
+    \item \url{https://en.wikipedia.org/wiki/Golden_ratio}
+    \item \url{https://www.includehelp.com/data-structure-tutorial/hashing.aspx}
+    \item \url{https://en.wikipedia.org/wiki/Hash_function}
+    \item \url{https://www.2brightsparks.com/resources/articles/introduction-to-hashing-and-its-uses.html}
+\end{enumerate}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
