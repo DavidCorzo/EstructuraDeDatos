@@ -83,10 +83,16 @@ Heap implementation: \#Heap
 Directory: 
 \#Hash -> Diferent_types_of_hashing_functions.pdf
 
-\#Hash -> HashinImplementat.py
+\#Hash -> HashinImplement.py
 
-
-
+## Implementación y discusión de searching and sorting para lunes 2020-05-03
+Directorios: 
+\#SearchingAndSorting -> Searching.py
+\#SearchingAndSorting -> SearchingBenchmark.py
+\#SearchingAndSorting -> Sorting.py
+\#SearchingAndSorting -> SortingBenchmark.py
+\#SearchingAndSorting -> Discusion.docx
+\#SearchingAndSorting -> ScreenShots -> \<Todas las SS\>
 
 
 --------------------------------------------------------------------------
