@@ -42,4 +42,3 @@ def binary_search(ordered_list: list,n: int):
     return None 
 
 
-
