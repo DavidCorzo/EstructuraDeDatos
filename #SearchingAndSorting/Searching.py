@@ -41,4 +41,9 @@ def binary_search(ordered_list: list,n: int):
             lower_bound = middle_bound + 1
     return None 
 
+# def main():
+#     L = list(range(1,100))
+#     print(binary_search(L,34))
 
+# if __name__ == "__main__":
+#     main()

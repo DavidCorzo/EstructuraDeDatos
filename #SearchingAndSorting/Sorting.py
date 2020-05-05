@@ -34,3 +34,10 @@ def quick_sort(unordered_list: list) -> list:
         else:
             lower.append(item)
     return quick_sort(lower) + [pivot] + quick_sort(upper) 
+
+# def main():
+#     L = [3,5,4,1,7,9,10]
+#     l = quick_sort(L)
+#     print(l)
+# if __name__ == "__main__":
+#     main()

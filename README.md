@@ -94,6 +94,10 @@ Directorios:
 \#SearchingAndSorting -> Discusion.docx
 \#SearchingAndSorting -> ScreenShots -> \<Todas las SS\>
 
+Video de funcionamiento, ejecución y benchmarking: 
+```
+https://youtu.be/KESr-FbUp-Q
+```
 
 --------------------------------------------------------------------------
 
@@ -103,4 +107,4 @@ Directorios:
 
 Estudiante: David Corzo
 Carné: 20190432
-
+sh 
